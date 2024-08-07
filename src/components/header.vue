@@ -9,6 +9,8 @@
       <router-link to="/sigin">Registrarse</router-link>
       <hr />
       <router-link to="/transacciones">Transacciones</router-link>
+      <hr />
+      <router-link to="/movimientos">Movimientos</router-link>
     </nav>
     <!-- <a href="transacciones.html">Transacciones</a>
     <hr />

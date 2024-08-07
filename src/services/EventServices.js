@@ -13,6 +13,9 @@ export default {
     // return apiClient.get(`/transactions?q={"user_id":"${usuario}"}`)
     return apiClient.get(`/transactions?q={"user_id":"guille1"}`);
   },
+  getTransaction(id) {
+    return apiClient.get(`/transactions/${id}`);
+  },
   postTransactions() {
     return apiClient;
   },
