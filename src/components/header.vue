@@ -62,6 +62,7 @@ header div h2 {
   font-family: "Permanent Marker", cursive;
   margin: auto;
   margin-top: 3.5%;
+  /* font-size: 30px; */
 }
 
 header i {

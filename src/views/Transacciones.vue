@@ -1,4 +1,5 @@
 <template>
+  <HeaderG />
   <div class="container-transaccion">
     <h2 class="titulo-transacciones">Transacciones</h2>
     <div class="transaccion">
@@ -55,10 +56,12 @@
 </template>
 <script>
 import EventServices from "@/services/EventServices.js";
-
+import HeaderG from "@/components/header.vue";
 export default {
   name: "FormularioTransacciones",
-  components: {},
+  components: {
+    HeaderG,
+  },
   data() {
     return {
       nombreCryptos: [
@@ -194,6 +197,70 @@ export default {
           error
         );
       }
+    },
+    async verificarCant(crypto) {
+      // const apiClient = this.axiosBD();
+      this.bandera3 = false;
+      this.bandera1 = false;
+
+      let cantTotal = 0;
+      // const usuario = localStorage.getItem('usuarioId');
+      const response = await EventServices.getTransactions();
+      //aca terminamosssssss
+      this.transacciones = response.data;
+
+      for (let cantTransaccion of this.transacciones) {
+        if (
+          cantTransaccion.crypto_code === crypto &&
+          cantTransaccion.action === "purchase"
+        ) {
+          cantTotal += cantTransaccion.crypto_amount;
+        } else if (
+          cantTransaccion.crypto_code === crypto &&
+          cantTransaccion.action === "sale"
+        ) {
+          cantTotal -= cantTransaccion.crypto_amount;
+        }
+      }
+      if (cantTotal >= this.cantidad) {
+        this.bandera1 = true;
+        this.bandera2 = false;
+      } else {
+        this.bandera1 = false;
+        this.bandera2 = true;
+      }
+    },
+    async vender() {
+      this.bandera1 = false;
+      this.bandera2 = false;
+      const accion = "vender";
+      const precio = await this.verificarCrypto(accion);
+      const precioF = precio.toFixed(2);
+      const fecha = await this.fecha();
+      // const apiClient = this.axiosBD();
+      // const usuario = localStorage.getItem('usuarioId');
+      const datos = {
+        user_id: this.usuario,
+        action: "sale",
+        crypto_code: this.cryptoSeleccionada,
+        crypto_amount: this.cantidad,
+        money: precioF,
+        datetime: fecha,
+      };
+      try {
+        const response = await EventServices.postTransactions().post(
+          "/transactions",
+          datos
+        );
+        console.log(response.data);
+        this.msj2 = "¡Venta realizada correctamente!";
+        this.bandera3 = true;
+      } catch (error) {
+        console.error("Error en la solicitud POST:", error);
+      }
+    },
+    cancelar() {
+      this.bandera1 = false;
     },
     fecha() {
       const fecha = new Date();

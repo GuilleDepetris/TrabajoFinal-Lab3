@@ -11,10 +11,9 @@ const apiCryptoYa = axios.create({
 export default {
   getTransactions() {
     // return apiClient.get(`/transactions?q={"user_id":"${usuario}"}`)
-    return apiClient.get(`/transactions?q={"user_id":"guille"}`);
+    return apiClient.get(`/transactions?q={"user_id":"guille1"}`);
   },
   postTransactions() {
-    // return apiClient.get(`/transactions?q={"user_id":"${usuario}"}`)
     return apiClient;
   },
   getPrecios() {
