@@ -9,13 +9,22 @@ const routes = [
     component: PrecioList,
   },
   {
-    path: "/about",
-    name: "about",
+    path: "/SigIn",
+    name: "SigIn",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+      import(/* webpackChunkName: "about" */ "../views/SigIn.vue"),
+  },
+  {
+    path: "/transacciones",
+    name: "Transacciones",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Transacciones.vue"),
   },
 ];
 

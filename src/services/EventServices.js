@@ -13,6 +13,10 @@ export default {
     // return apiClient.get(`/transactions?q={"user_id":"${usuario}"}`)
     return apiClient.get(`/transactions?q={"user_id":"guille"}`);
   },
+  postTransactions() {
+    // return apiClient.get(`/transactions?q={"user_id":"${usuario}"}`)
+    return apiClient;
+  },
   getPrecios() {
     return apiCryptoYa;
   },

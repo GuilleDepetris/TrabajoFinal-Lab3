@@ -64,7 +64,7 @@ export default {
     };
   },
   created() {
-    EventServices.getTransactions().then((res) => (this.events = res.data));
+    // EventServices.getTransactions().then((res) => (this.events = res.data));
     this.obtencionPrecios();
     setInterval(() => {
       this.obtencionPrecios();

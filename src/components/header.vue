@@ -6,7 +6,9 @@
     <nav class="contenedor-links" v-if="bandera">
       <router-link to="/">Precios</router-link>
       <hr />
-      <router-link to="/about">About</router-link>
+      <router-link to="/sigin">Registrarse</router-link>
+      <hr />
+      <router-link to="/transacciones">Transacciones</router-link>
     </nav>
     <!-- <a href="transacciones.html">Transacciones</a>
     <hr />
@@ -99,4 +101,14 @@ nav a {
 nav a.router-link-exact-active {
   color: rgb(0, 0, 228);
 }
+/* @media only screen and (min-width: 620px) {
+  header {
+    max-width: 60%;
+    margin: auto;
+  }
+
+  header i {
+    right: 5%;
+  }
+} */
 </style>
