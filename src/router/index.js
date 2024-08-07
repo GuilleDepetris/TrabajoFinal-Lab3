@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import PrecioList from "../views/PrecioList.vue";
-// import PrecioList from "../views/PrecioList.vue";
 
 const routes = [
   {
@@ -11,29 +10,17 @@ const routes = [
   {
     path: "/sigin",
     name: "SigIn",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/SigIn.vue"),
+    component: () => import("../views/SigIn.vue"),
   },
   {
     path: "/movimientos",
     name: "Movimientos",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Movimientos.vue"),
+    component: () => import("../views/Movimientos.vue"),
   },
   {
     path: "/transacciones",
     name: "Transacciones",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Transacciones.vue"),
+    component: () => import("../views/Transacciones.vue"),
   },
 ];
 
