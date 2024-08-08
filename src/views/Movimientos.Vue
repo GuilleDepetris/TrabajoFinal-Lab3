@@ -37,7 +37,6 @@ export default {
       transacciones: [],
       detalleTransaccion: null,
       idTransaccion: null,
-      bandera: false,
       cargando: true,
     };
   },

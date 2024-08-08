@@ -19,7 +19,7 @@
         </form>
         <div class="contenedor-btnAcceder">
           <button class="btnAcceder" @click="acceder()">Acceder</button>
-          <p v-if="bandera4" class="incorrectos">
+          <p v-if="bandera1" class="incorrectos">
             Usuario o contraseña incorrectos
           </p>
           <div class="registrar">
@@ -35,7 +35,11 @@ export default {
   name: "SigIn",
   components: {},
   data() {
-    return {};
+    return {
+      contraseña: "",
+      usuarioId: "",
+      bandera1: false,
+    };
   },
   methods: {},
 };

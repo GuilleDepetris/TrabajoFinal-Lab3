@@ -53,9 +53,6 @@ export default {
     idTransaccion: String,
   },
   emits: ["cerrar-transaccion"],
-  components: {
-    EventServices,
-  },
   data() {
     return {
       nombreCryptos: [
