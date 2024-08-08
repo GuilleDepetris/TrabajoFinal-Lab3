@@ -50,10 +50,8 @@ export default {
         const response = await EventServices.getTransactions();
         if (response.data.length > 0) {
           this.transacciones = response.data;
-          console.log(this.transacciones);
         } else {
           console.log("No hay transacciones");
-          console.log(this.transacciones);
         }
       } catch (error) {
         console.log(error);
@@ -61,9 +59,6 @@ export default {
         this.cargando = false;
       }
     },
-    // cerrarTransaccion() {
-    //   this.bandera = false;
-    // },
   },
 };
 </script>

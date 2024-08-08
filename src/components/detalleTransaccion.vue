@@ -1,31 +1,49 @@
 <template>
-  <div v-if="bandera" class="fondo-borroso"></div>
-  <div class="container-detalles">
-    <div class="infoTransaccion">
-      <h3>Detalles de Transacción</h3>
-      <h3>{{ tipoTransaccion }}</h3>
-      <p>{{ detalleTransaccion.crypto_code }}</p>
-      <h4>Pagado</h4>
-      <p>{{ detalleTransaccion.money }}</p>
-      <h4>Cantidad</h4>
-      <p>{{ detalleTransaccion.crypto_amount }}</p>
-      <h4>Fecha de Transaccion</h4>
-      <p>{{ detalleTransaccion.datetime }}</p>
+  <div class="container-general">
+    <div>
+      <div class="infoTransaccion">
+        <h3>Detalles de Transacción</h3>
+        <h3>{{ tipoTransaccion }}</h3>
+        <p>{{ detalleTransaccion.crypto_code }}</p>
+        <h4>Pagado</h4>
+        <p>{{ detalleTransaccion.money }}</p>
+        <h4>Cantidad</h4>
+        <p>{{ detalleTransaccion.crypto_amount }}</p>
+        <h4>Fecha de Transaccion</h4>
+        <p>{{ detalleTransaccion.datetime }}</p>
+      </div>
     </div>
+    <editarTransaccion
+      @cerrar-transaccion="cerrarTransaccion"
+      :idTransaccion="idTransaccion"
+    />
   </div>
-  <editarTransaccion
-    :idTransaccion="idTransaccion"
-    @cerrar-transaccion="cerrarTransaccion"
-  ></editarTransaccion>
 </template>
 <script>
+import editarTransaccion from "@/components/editarTransaccion.vue";
 export default {
   name: "detalleTransaccion",
   props: {
     detalleTransaccion: Object,
-    bandera: Boolean,
   },
-  methods: {},
+  data() {
+    return {
+      idTransaccion: null,
+    };
+  },
+  created() {
+    if (this.detalleTransaccion) {
+      this.idTransaccion = this.detalleTransaccion._id;
+    }
+  },
+  components: {
+    editarTransaccion,
+  },
+  methods: {
+    cerrarTransaccion() {
+      this.$emit("cerrar-transaccion-final");
+    },
+  },
   computed: {
     tipoTransaccion() {
       if (
@@ -41,13 +59,13 @@ export default {
 };
 </script>
 <style scoped>
-.container-detalles {
+.container-general {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  background-color: rgb(0, 0, 228);
+  background-color: #f4f4f4;
   border-radius: 10px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   padding: 20px;

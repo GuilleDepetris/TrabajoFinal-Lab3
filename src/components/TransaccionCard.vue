@@ -9,12 +9,19 @@
       <i class="fa-solid fa-circle-info"></i>
     </button>
   </div>
-  <div v-if="bandera" class="fondo-borroso"></div>
-  <detalleTransaccion v-if="bandera" :detalleTransaccion="detalleTransaccion" />
+  <div v-if="bandera">
+    <div class="fondo-borroso"></div>
+    <detalleTransaccion
+      v-if="bandera"
+      @cerrar-transaccion-final="cerrarTransaccion"
+      :detalleTransaccion="detalleTransaccion"
+    />
+  </div>
 </template>
 <script>
 import DetalleTransaccion from "@/components/detalleTransaccion.vue";
 import EventServices from "@/services/EventServices.js";
+
 export default {
   name: "TransaccionCard",
   props: {
@@ -36,13 +43,16 @@ export default {
       try {
         const response = await EventServices.getTransaction(this.idTransaccion);
         this.detalleTransaccion = response.data;
+        this.bandera = true;
         const fechaCompleta = this.detalleTransaccion.datetime;
         const fechaSinTZ = fechaCompleta.replace("T", "/").replace("Z", "");
         this.detalleTransaccion.datetime = fechaSinTZ;
-        this.bandera = true;
       } catch (error) {
         console.error(error);
       }
+    },
+    cerrarTransaccion() {
+      this.bandera = false;
     },
   },
 };

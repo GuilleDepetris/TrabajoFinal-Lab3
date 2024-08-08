@@ -16,6 +16,12 @@ export default {
   getTransaction(id) {
     return apiClient.get(`/transactions/${id}`);
   },
+  deleteTransaction(id) {
+    return apiClient.delete(`/transactions/${id}`);
+  },
+  editarTransaction(id, datos) {
+    return apiClient.patch(`/transactions/${id}`, datos);
+  },
   postTransactions() {
     return apiClient;
   },
