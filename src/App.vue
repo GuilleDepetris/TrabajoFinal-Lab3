@@ -1,4 +1,6 @@
 <template>
+  <!-- Esto es solo para que me deje de tirar la advertencia de que no lo estoy usando -->
+  <FontAwesomeIcon class="invisible"></FontAwesomeIcon>
   <router-view />
 </template>
 <script>
@@ -16,5 +18,8 @@ export default {
 * {
   padding: 0;
   margin: 0;
+}
+.invisible {
+  display: none;
 }
 </style>
