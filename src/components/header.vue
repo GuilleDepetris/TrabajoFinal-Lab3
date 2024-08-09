@@ -6,11 +6,15 @@
     <nav class="contenedor-links" v-if="bandera">
       <router-link to="/">Precios</router-link>
       <hr />
-      <router-link to="/sigin">Registrarse</router-link>
-      <hr />
       <router-link to="/transacciones">Transacciones</router-link>
       <hr />
       <router-link to="/movimientos">Movimientos</router-link>
+      <hr />
+      <router-link to="/analisisEstado">Billetera</router-link>
+      <hr />
+      <router-link to="/analisisDeInversion">Inversiones</router-link>
+      <hr />
+      <router-link to="/sigin">Cerrar Sesión</router-link>
     </nav>
     <!-- <a href="transacciones.html">Transacciones</a>
     <hr />
