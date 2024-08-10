@@ -1,29 +1,37 @@
 <template>
   <HeaderG />
   <div class="conteiner-analisis-estado">
-    <h2 class="tituloPagEA">Fondos de la cuenta</h2>
+    <h2>Fondos de la cuenta</h2>
     <div class="titulosEstadoAtual">
       <p>Critomoneda</p>
       <p>Cantidad</p>
       <p>Dinero</p>
     </div>
-    <div
-      class="datosDeEstado"
-      v-for="(cantidades, index) in cantidadesTotales"
-      :key="index"
-    >
-      <p>{{ cantidades.nombre }}</p>
-      <p>{{ cantidades.cantidad }}</p>
-      <p>$ {{ cantidades.precioTotal }}</p>
+    <div v-if="cargando">
+      <h4 class="verificando">Cargando...</h4>
     </div>
-    <div class="container-total">
-      <p class="titulo-total">Total</p>
-      <p class="precio-total">$ {{ mostrarTotal }}</p>
+    <div v-else-if="cantidadesTotales.length > 0">
+      <div
+        class="datosDeEstado"
+        v-for="(cantidades, index) in cantidadesTotales"
+        :key="index"
+      >
+        <p>{{ cantidades.nombre }}</p>
+        <p>{{ cantidades.cantidad }}</p>
+        <p>$ {{ cantidades.precioTotal }}</p>
+      </div>
+      <div class="container-total">
+        <p class="titulo-total">Total</p>
+        <p class="precio-total">$ {{ mostrarTotal }}</p>
+      </div>
     </div>
-    <!-- <grafico-criptomonedas
-      :cantidadesTotales="cantidadesTotales"
-    ></grafico-criptomonedas> -->
+    <div v-else>
+      <h4 class="verificando">No tienes transacciones realizadas</h4>
+    </div>
   </div>
+  <!-- <grafico-criptomonedas
+    :cantidadesTotales="cantidadesTotales"
+    ></grafico-criptomonedas> -->
 </template>
 <script>
 import EventServices from "@/services/EventServices";
@@ -37,6 +45,7 @@ export default {
     return {
       dineroTotal: 0,
       cantidadesTotales: [],
+      cargando: true,
     };
   },
   created() {
@@ -49,7 +58,7 @@ export default {
         const cantidadesCriptomonedas = await this.verificarCant(
           nombresCriptomonedas
         );
-        console.log(cantidadesCriptomonedas);
+        console.log(cantidadesCriptomonedas); //esto es para que no me salga el aviso de que no uso la variable "cantidadesCriptomonedas"
       } catch (error) {
         console.error("Error al obtener y verificar cantidades:", error);
       }
@@ -111,6 +120,8 @@ export default {
         }
       } catch (error) {
         console.error("Error al obtener y verificar cantidades:", error);
+      } finally {
+        this.cargando = false;
       }
     },
   },
@@ -123,58 +134,74 @@ export default {
 </script>
 <style scoped>
 .conteiner-analisis-estado {
-  max-width: 1100px;
-  margin: auto;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 20px;
+  border: 1px solid rgb(0, 0, 228);
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-family: "Poppins", sans-serif;
 }
 
-.tituloPagEA {
-  font-family: sans-serif;
+.conteiner-analisis-estado h2 {
+  font-size: 24px;
   text-align: center;
-  font-size: 33px;
-  margin: 7px;
-  color: #007bff;
+  margin-bottom: 20px;
+  color: rgb(0, 0, 228);
 }
 
 .titulosEstadoAtual {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  align-items: center;
-  font-family: sans-serif;
-  font-weight: 600;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  padding: 8.7px;
+  text-align: center;
+  gap: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .datosDeEstado {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  align-items: center;
-  padding: 4px;
-  font-family: sans-serif;
+  text-align: center;
+  border: 1px solid rgb(0, 0, 228);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+.datosDeEstado p {
+  font-weight: 600;
 }
 
 .container-total {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  align-items: center;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  padding: 3px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid rgb(0, 0, 228);
+  border-radius: 5px;
 }
 
 .titulo-total {
-  grid-column: 2/3;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  grid-column: 2 / 3;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: rgb(0, 0, 228);
 }
 
 .precio-total {
-  grid-column: 3/4;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+}
+
+.verificando {
+  font-size: 18px;
+  color: rgb(0, 0, 228);
+  text-align: center;
 }
 </style>

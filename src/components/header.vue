@@ -16,16 +16,6 @@
       <hr />
       <router-link to="/sigin">Cerrar Sesión</router-link>
     </nav>
-    <!-- <a href="transacciones.html">Transacciones</a>
-    <hr />
-    <a href="historial.html">Movimientos</a>
-    <hr />
-    <a href="analisisEstado.html">Billetera</a>
-    <hr />
-    <a href="analisisDeInversion.html">Inversiones</a>
-    <hr />
-    <a href="index.html">Cerrar Sesión</a> -->
-
     <i class="fa-solid fa-bars" @click="barraLinks"></i>
   </header>
 </template>

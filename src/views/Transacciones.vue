@@ -199,14 +199,10 @@ export default {
       }
     },
     async verificarCant(crypto) {
-      // const apiClient = this.axiosBD();
       this.bandera3 = false;
       this.bandera1 = false;
-
       let cantTotal = 0;
-      // const usuario = localStorage.getItem('usuarioId');
       const response = await EventServices.getTransactions();
-      //aca terminamosssssss
       this.transacciones = response.data;
 
       for (let cantTransaccion of this.transacciones) {
@@ -237,8 +233,6 @@ export default {
       const precio = await this.verificarCrypto(accion);
       const precioF = precio.toFixed(2);
       const fecha = await this.fecha();
-      // const apiClient = this.axiosBD();
-      // const usuario = localStorage.getItem('usuarioId');
       const datos = {
         user_id: this.usuario,
         action: "sale",
