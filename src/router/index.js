@@ -1,6 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import PrecioList from "../views/PrecioList.vue";
-// import PrecioList from "../views/PrecioList.vue";
+import SigIn from "../views/SigIn.vue";
+import Transacciones from "@/views/Transacciones.vue";
+import Movimientos from "../views/Movimientos.vue";
+import AnalisisEstado from "@/views/analisisEstado.vue";
+import AnalisisDeInversion from "../views/analisisDeInversion.vue";
 
 const routes = [
   {
@@ -11,49 +15,27 @@ const routes = [
   {
     path: "/SigIn",
     name: "SigIn",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/SigIn.vue"),
+    component: SigIn,
   },
   {
     path: "/transacciones",
     name: "Transacciones",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Transacciones.vue"),
+    component: Transacciones,
   },
   {
     path: "/movimientos",
     name: "Movimientos",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Movimientos.vue"),
+    component: Movimientos,
   },
   {
     path: "/analisisEstado",
     name: "AnalisisEstado",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/analisisEstado.vue"),
+    component: AnalisisEstado,
   },
   {
     path: "/analisisDeInversion",
     name: "AnalisisDeInversion",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(
-        /* webpackChunkName: "about" */ "../views/analisisDeInversion.vue"
-      ),
+    component: AnalisisDeInversion,
   },
 ];
 

@@ -33,7 +33,6 @@
 <script>
 export default {
   name: "SigIn",
-  components: {},
   data() {
     return {
       contraseña: "",
@@ -45,7 +44,6 @@ export default {
 };
 </script>
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 section {
   display: flex;
   justify-content: center;
