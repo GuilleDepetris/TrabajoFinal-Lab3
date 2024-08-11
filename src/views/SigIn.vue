@@ -40,10 +40,23 @@ export default {
       bandera1: false,
     };
   },
-  methods: {},
+  created() {
+    this.mostrarHeader();
+  },
+  methods: {
+    mostrarHeader() {
+      this.$root.mostrar = false;
+    },
+    acceder() {
+      window.location.href = "/";
+    },
+  },
 };
 </script>
 <style scoped>
+Header {
+  display: none;
+}
 section {
   display: flex;
   justify-content: center;

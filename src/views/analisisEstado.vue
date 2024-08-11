@@ -1,5 +1,4 @@
 <template>
-  <HeaderG />
   <div class="conteiner-analisis-estado">
     <h2>Fondos de la cuenta</h2>
     <div class="titulosEstadoAtual">
@@ -35,12 +34,9 @@
 </template>
 <script>
 import EventServices from "@/services/EventServices";
-import HeaderG from "@/components/header.vue";
 export default {
   name: "analisisEstado",
-  components: {
-    HeaderG,
-  },
+  components: {},
   data() {
     return {
       dineroTotal: 0,

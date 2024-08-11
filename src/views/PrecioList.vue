@@ -1,5 +1,4 @@
 <template>
-  <HeaderG />
   <div class="contenedor-precios-general">
     <div class="contenedor-precios">
       <h1 class="titulo">Criptomonedas</h1>
@@ -22,16 +21,13 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import PrecioCard from "@/components/PrecioCard.vue";
 import EventServices from "@/services/EventServices.js";
-import HeaderG from "@/components/header.vue";
 
 export default {
   name: "PrecioList",
   components: {
     PrecioCard,
-    HeaderG,
   },
   data() {
     return {

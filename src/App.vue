@@ -1,4 +1,5 @@
 <template>
+  <HeaderGeneral v-if="mostrar" />
   <!-- Esto es solo para que me deje de tirar la advertencia de que no lo estoy usando -->
   <FontAwesomeIcon class="invisible"></FontAwesomeIcon>
   <router-view />
@@ -6,10 +7,17 @@
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import "@fortawesome/fontawesome-free/css/all.css";
+import HeaderGeneral from "@/components/header.vue";
 
 export default {
   components: {
     FontAwesomeIcon,
+    HeaderGeneral,
+  },
+  data() {
+    return {
+      mostrar: true,
+    };
   },
 };
 </script>

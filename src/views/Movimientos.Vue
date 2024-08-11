@@ -1,5 +1,4 @@
 <template>
-  <HeaderG />
   <div class="detalles-compra">
     <p>Moneda</p>
     <p>Accion</p>
@@ -23,13 +22,11 @@
 
 <script>
 import EventServices from "@/services/EventServices";
-import HeaderG from "@/components/header.vue";
 import TransaccionCard from "@/components/TransaccionCard.vue";
 
 export default {
   name: "MovimientosList",
   components: {
-    HeaderG,
     TransaccionCard,
   },
   data() {

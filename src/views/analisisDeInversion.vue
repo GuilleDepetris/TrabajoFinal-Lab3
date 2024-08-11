@@ -1,5 +1,4 @@
 <template>
-  <HeaderGeneral />
   <div class="conteiner-analisis-inversion">
     <h2>Inversiones</h2>
     <div class="titulosAnalisisInversion">
@@ -22,13 +21,10 @@
   </div>
 </template>
 <script>
-import HeaderGeneral from "@/components/header.vue";
 import EventServices from "@/services/EventServices";
 export default {
   name: "analisisDeInversion",
-  components: {
-    HeaderGeneral,
-  },
+  components: {},
   data() {
     return {
       dineroTotal: 0,

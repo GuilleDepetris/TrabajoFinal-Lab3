@@ -1,5 +1,4 @@
 <template>
-  <HeaderG />
   <div class="container-transaccion">
     <h2 class="titulo-transacciones">Transacciones</h2>
     <div class="transaccion">
@@ -56,12 +55,9 @@
 </template>
 <script>
 import EventServices from "@/services/EventServices.js";
-import HeaderG from "@/components/header.vue";
 export default {
   name: "FormularioTransacciones",
-  components: {
-    HeaderG,
-  },
+  components: {},
   data() {
     return {
       nombreCryptos: [
