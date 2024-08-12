@@ -75,7 +75,6 @@ export default {
       bandera1: false,
       bandera2: false,
       bandera3: false,
-      usuario: "guille1",
     };
   },
   created() {
@@ -85,7 +84,7 @@ export default {
     }, 10000);
   },
   computed: {
-    ...mapState(["nombreCryptos"]),
+    ...mapState(["nombreCryptos", "usuario"]),
   },
   methods: {
     async obtencionPrecios() {
@@ -129,6 +128,7 @@ export default {
       }
     },
     async comprar() {
+      const usuario = localStorage.getItem("usuario");
       this.bandera2 = false;
       const accion = "comprar";
       const precio = await this.verificarCrypto(accion);
@@ -141,7 +141,7 @@ export default {
         precio > 0
       ) {
         const datos = {
-          user_id: this.usuario,
+          user_id: usuario,
           action: "purchase",
           crypto_code: this.cryptoSeleccionada,
           crypto_amount: this.cantidad,
@@ -149,10 +149,7 @@ export default {
           datetime: fecha,
         };
         try {
-          const response = await EventServices.postTransactions().post(
-            "/transactions",
-            datos
-          );
+          const response = await EventServices.postTransactions(datos);
           console.log(response.data);
           this.msj2 = "¡Compra realizada correctamente!";
           this.bandera3 = true;
@@ -211,6 +208,7 @@ export default {
       }
     },
     async vender() {
+      const usuario = localStorage.getItem("usuario");
       this.bandera1 = false;
       this.bandera2 = false;
       const accion = "vender";
@@ -218,7 +216,7 @@ export default {
       const precioF = precio.toFixed(2);
       const fecha = await this.fecha();
       const datos = {
-        user_id: this.usuario,
+        user_id: usuario,
         action: "sale",
         crypto_code: this.cryptoSeleccionada,
         crypto_amount: this.cantidad,
@@ -226,10 +224,7 @@ export default {
         datetime: fecha,
       };
       try {
-        const response = await EventServices.postTransactions().post(
-          "/transactions",
-          datos
-        );
+        const response = await EventServices.postTransactions(datos);
         console.log(response.data);
         this.msj2 = "¡Venta realizada correctamente!";
         this.bandera3 = true;

@@ -1,13 +1,13 @@
 <template>
   <header class="header1">
     <nav class="contenedor-links">
-      <router-link to="/">Precios</router-link>
+      <router-link to="/precioList">Precios</router-link>
       <router-link to="/transacciones">Transacciones</router-link>
       <router-link to="/movimientos">Movimientos</router-link>
       <h2>Crypto Market</h2>
       <router-link to="/analisisEstado">Billetera</router-link>
       <router-link to="/analisisDeInversion">Inversiones</router-link>
-      <router-link to="/sigin">Cerrar Sesión</router-link>
+      <router-link to="/">Cerrar Sesión</router-link>
     </nav>
   </header>
   <header class="header2">

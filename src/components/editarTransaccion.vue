@@ -80,7 +80,6 @@ export default {
       crypto: "",
       cantidadRecibida: "",
       cantidadPagada: "",
-      login: "Guille16446",
     };
   },
   computed: {
@@ -113,6 +112,7 @@ export default {
         this.bandera1 = false;
         setInterval(() => {
           this.$emit("cerrar-transaccion");
+          window.location.href = "/movimientos";
         }, 2500);
       } catch (error) {
         console.log("Error al eliminar la transacción:", error);

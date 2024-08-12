@@ -9,13 +9,13 @@ import AnalisisDeInversion from "../views/analisisDeInversion.vue";
 const routes = [
   {
     path: "/",
-    name: "PrecioList",
-    component: PrecioList,
-  },
-  {
-    path: "/SigIn",
     name: "SigIn",
     component: SigIn,
+  },
+  {
+    path: "/precioList",
+    name: "PrecioList",
+    component: PrecioList,
   },
   {
     path: "/transacciones",

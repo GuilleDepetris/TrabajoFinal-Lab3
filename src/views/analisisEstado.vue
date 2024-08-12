@@ -87,7 +87,7 @@ export default {
           let cantTotal = 0;
 
           const res = await EventServices.getPrecios().get(
-            `https://criptoya.com/api/binance/${nombreCrypto}/ars`
+            `/binance/${nombreCrypto}/ars`
           );
           precio = res.data.totalBid.toFixed(2);
 

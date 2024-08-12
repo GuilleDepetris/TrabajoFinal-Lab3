@@ -49,8 +49,9 @@ export default {
     ...mapMutations(["agregarUsuario"]),
     acceder() {
       if (this.usuarioId !== "" && this.contraseña.length > 6) {
-        this.agregarUsuario(this.usuarioId);
-        window.location.href = "/";
+        localStorage.setItem("usuario", this.usuarioId);
+        this.$root.mostrar = true;
+        this.$router.push("/precioList");
       } else {
         this.msj = "Usuario o contraseña incorrectos";
       }
