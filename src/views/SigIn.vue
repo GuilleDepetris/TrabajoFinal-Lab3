@@ -45,9 +45,6 @@ export default {
   created() {
     this.mostrarHeader();
   },
-  computed: {
-    // ...mapState(["usuario"]),
-  },
   methods: {
     ...mapMutations(["agregarUsuario"]),
     acceder() {
@@ -199,6 +196,8 @@ input:valid ~ label {
   color: #ff3232;
   text-align: center;
   font-weight: 700;
+  margin-top: 5px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 @media only screen and (min-width: 620px) {
   .contenedor {
