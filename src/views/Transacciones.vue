@@ -55,23 +55,12 @@
 </template>
 <script>
 import EventServices from "@/services/EventServices.js";
+import { mapState } from "vuex";
 export default {
   name: "FormularioTransacciones",
   components: {},
   data() {
     return {
-      nombreCryptos: [
-        `btc`,
-        `eth`,
-        `doge`,
-        `usdt`,
-        `usdc`,
-        `avax`,
-        `bnb`,
-        `ada`,
-        `sol`,
-        `dai`,
-      ],
       valoresCryptos: [],
       cantidad: 0,
       cryptoSeleccionada: ``,
@@ -86,16 +75,17 @@ export default {
       bandera1: false,
       bandera2: false,
       bandera3: false,
-      bandera4: false,
       usuario: "guille1",
     };
   },
   created() {
-    // EventServices.getTransactions().then((res) => (this.events = res.data));
     this.obtencionPrecios();
     setInterval(() => {
       this.obtencionPrecios();
     }, 10000);
+  },
+  computed: {
+    ...mapState(["nombreCryptos"]),
   },
   methods: {
     async obtencionPrecios() {
@@ -144,14 +134,12 @@ export default {
       const precio = await this.verificarCrypto(accion);
       const precioF = precio.toFixed(2);
       const fecha = await this.fecha();
-      // const usuario = localStorage.getItem('usuarioId');
 
       if (
         this.cryptoSeleccionada != undefined &&
         this.cantidad > 0 &&
         precio > 0
       ) {
-        // const apiClient = this.axiosBD();
         const datos = {
           user_id: this.usuario,
           action: "purchase",

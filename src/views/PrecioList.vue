@@ -23,6 +23,7 @@
 <script>
 import PrecioCard from "@/components/PrecioCard.vue";
 import EventServices from "@/services/EventServices.js";
+import { mapState } from "vuex";
 
 export default {
   name: "PrecioList",
@@ -31,36 +32,10 @@ export default {
   },
   data() {
     return {
-      events: null,
-      nombreCryptos: [
-        `btc`,
-        `eth`,
-        `doge`,
-        `usdt`,
-        `usdc`,
-        `avax`,
-        `bnb`,
-        `ada`,
-        `sol`,
-        `dai`,
-      ],
       valoresCryptos: [],
-      nombreCryptosC: [
-        `Bitcoin`,
-        `Ethereum`,
-        ` Dogecoin`,
-        `USD Tether`,
-        `USD Coin`,
-        `Avalanche`,
-        `Binance Coin`,
-        `Cardano`,
-        ` Solana`,
-        `Dai`,
-      ],
     };
   },
   created() {
-    // EventServices.getTransactions().then((res) => (this.events = res.data));
     this.obtencionPrecios();
     setInterval(() => {
       this.obtencionPrecios();
@@ -84,6 +59,9 @@ export default {
         }
       }
     },
+  },
+  computed: {
+    ...mapState(["nombreCryptos", "nombreCryptosC"]),
   },
 };
 </script>

@@ -75,7 +75,6 @@ export default {
   max-width: 500px;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  background-color: #f4f4f4;
 }
 .infoTransaccion {
   text-align: left;
