@@ -19,8 +19,8 @@
         </form>
         <div class="contenedor-btnAcceder">
           <button class="btnAcceder" @click="acceder()">Acceder</button>
-          <p v-if="bandera1" class="incorrectos">
-            Usuario o contraseña incorrectos
+          <p class="respuesta">
+            {{ msj }}
           </p>
           <div class="registrar">
             <p>No tengo cuenta<a href=""> Crear una</a></p>
@@ -31,6 +31,7 @@
   </section>
 </template>
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "SigIn",
   data() {
@@ -38,17 +39,27 @@ export default {
       contraseña: "",
       usuarioId: "",
       bandera1: false,
+      msj: "",
     };
   },
   created() {
     this.mostrarHeader();
   },
+  computed: {
+    // ...mapState(["usuario"]),
+  },
   methods: {
+    ...mapMutations(["agregarUsuario"]),
+    acceder() {
+      if (this.usuarioId !== "" && this.contraseña.length > 6) {
+        this.agregarUsuario(this.usuarioId);
+        window.location.href = "/";
+      } else {
+        this.msj = "Usuario o contraseña incorrectos";
+      }
+    },
     mostrarHeader() {
       this.$root.mostrar = false;
-    },
-    acceder() {
-      window.location.href = "/";
     },
   },
 };
@@ -184,7 +195,7 @@ input:valid ~ label {
   text-decoration: underline;
 }
 
-.incorrectos {
+.respuesta {
   color: #ff3232;
   text-align: center;
   font-weight: 700;

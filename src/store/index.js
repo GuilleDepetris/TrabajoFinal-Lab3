@@ -26,9 +26,19 @@ export default createStore({
       ` Solana`,
       `Dai`,
     ],
+    usuario: "",
+  },
+  mutations: {
+    agregarUsuario(state, usuario) {
+      state.usuario = usuario;
+      console.log(state.usuario);
+    },
+    // setUsuario(state, usuario) {
+    //   state.usuario = usuario;
+    //   console.log(state.usuario);
+    // },
   },
   getters: {},
-  mutations: {},
   actions: {},
   modules: {},
 });

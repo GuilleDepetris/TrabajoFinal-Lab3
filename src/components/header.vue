@@ -56,7 +56,7 @@ export default {
   align-items: center;
   box-shadow: 0 2.5px 4px rgba(0, 0, 0, 0.4);
   position: relative;
-  z-index: 3;
+  z-index: 10;
 }
 .header2 {
   display: none;
@@ -105,7 +105,7 @@ nav a.router-link-exact-active {
     justify-content: center;
     box-shadow: 0 2.5px 4px rgba(0, 0, 0, 0.5);
     position: relative;
-    z-index: 3;
+    z-index: 10;
   }
   .contenedor-links2 {
     background-color: #fff;
