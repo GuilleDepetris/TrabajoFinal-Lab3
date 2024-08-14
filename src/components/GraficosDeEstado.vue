@@ -1,8 +1,8 @@
 <template>
   <div class="contenedor-graficos">
-    <p class="cargando" v-if="cargando">Cargando Graficos...</p>
     <canvas id="myChart" :style="{ display: display1 }"></canvas>
     <canvas id="myChart2" :style="{ display: display2 }"></canvas>
+    <p class="cargando" v-if="cargando">Cargando Graficos...</p>
     <p class="cargando" v-if="cargando1">
       No hay transacciones como para mostrar los graficos
     </p>
@@ -28,7 +28,7 @@ export default {
   mounted() {
     setTimeout(() => {
       try {
-        if (this.cantidadesTotales > 0) {
+        if (this.cantidadesTotales.length > 0) {
           this.renderizandoGrafico();
           this.renderizandoGrafico2();
         } else {
@@ -102,6 +102,9 @@ export default {
                 "rgba(255, 0, 0, 0.7)",
                 "rgba(0, 255, 0, 0.7)",
                 "rgba(255, 0, 255, 0.7)",
+                "rgba(0, 0, 0, 0.7)",
+                "rgba(0, 155, 255, 0.7)",
+                "rgba(255, 0, 100, 0.7)",
               ],
               borderColor: "rgba(50, 90, 200, 1)",
               borderWidth: 1.7,
@@ -125,6 +128,7 @@ export default {
 </script>
 <style scoped>
 .cargando {
+  margin-top: 100px;
   text-align: center;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -155,7 +159,7 @@ i:hover {
   }
   i {
     position: absolute;
-    top: 105%;
+    top: 162%;
     right: 30px;
     font-size: 40px;
     color: rgba(140, 140, 140, 0.9);
