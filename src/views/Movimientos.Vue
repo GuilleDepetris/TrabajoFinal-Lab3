@@ -1,7 +1,7 @@
 <template>
   <div class="detalles-compra">
     <p>Moneda</p>
-    <p>Accion</p>
+    <p>Acción</p>
     <p>Cantidad</p>
     <p>Precio</p>
     <p>Info</p>

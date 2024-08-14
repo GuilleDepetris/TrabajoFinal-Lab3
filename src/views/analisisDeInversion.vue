@@ -2,7 +2,7 @@
   <div class="conteiner-analisis-inversion">
     <h2>Inversiones</h2>
     <div class="titulosAnalisisInversion">
-      <p>Critomoneda</p>
+      <p>Criptomoneda</p>
       <p>Resultado</p>
     </div>
     <p v-if="cargando" class="cargando">Cargando inversiones...</p>

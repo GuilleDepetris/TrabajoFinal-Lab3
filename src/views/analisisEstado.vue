@@ -3,7 +3,7 @@
     <div class="conteiner-analisis-estado">
       <h2>Fondos de la cuenta</h2>
       <div class="titulosEstadoAtual">
-        <p>Critomoneda</p>
+        <p>Criptomoneda</p>
         <p>Cantidad</p>
         <p>Dinero</p>
       </div>
