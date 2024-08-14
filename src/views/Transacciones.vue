@@ -20,8 +20,8 @@
     </div>
     <div class="calcular-valor">
       <button @click="calcularValor()">Calcular</button><br />
-      <p>Compra: $ {{ compraF }}</p>
-      <p>Venta: $ {{ ventaF }}</p>
+      <p>Compra: {{ compraF }}</p>
+      <p>Venta: {{ ventaF }}</p>
       <p>{{ msj }}</p>
     </div>
     <div class="btnsTransaccion">
@@ -85,6 +85,12 @@ export default {
   },
   computed: {
     ...mapState(["nombreCryptos", "usuario"]),
+    agregarSignoCompra() {
+      return "$ " + this.compraF;
+    },
+    agregarSignoVenta() {
+      return "$ " + this.ventaF;
+    },
   },
   methods: {
     async obtencionPrecios() {
@@ -119,9 +125,9 @@ export default {
       if (cantidad >= 0 && this.cryptoSeleccionada != ``) {
         let compra, venta;
         compra = this.compra * cantidad;
-        this.compraF = compra.toFixed(2);
+        this.compraF = "$" + compra.toFixed(2);
         venta = this.venta * cantidad;
-        this.ventaF = venta.toFixed(2);
+        this.ventaF = "$" + venta.toFixed(2);
         this.estadoBoton = true;
       } else {
         this.msj = "Cantidad o cryptomoneda incorrecta";
@@ -278,7 +284,7 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 1rem;
   border-color: blue;
   outline: none;
-  background-color: rgb(240, 240, 240);
+  background-color: transparent;
   padding-left: 10px;
 }
 
@@ -288,7 +294,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: transparent;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   appearance: none;
   margin-left: 16%;
@@ -310,7 +316,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .calcular-valor {
-  background-color: #f0f0f0;
+  background-color: transparent;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.6);

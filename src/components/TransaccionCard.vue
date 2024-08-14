@@ -70,14 +70,14 @@ export default {
   padding: 4px;
   border: 1px solid black;
   border-radius: 5px;
-  background-color: white;
+  background-color: transparent;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   z-index: 1;
 }
 .transac:hover {
   background: rgb(214, 214, 214);
-  transform: scale(1.07);
+  transform: scale(1.01);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   z-index: 2;
 }

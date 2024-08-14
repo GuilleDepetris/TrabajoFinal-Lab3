@@ -5,7 +5,10 @@
       <p>Critomoneda</p>
       <p>Resultado</p>
     </div>
+    <p v-if="cargando" class="cargando">Cargando inversiones...</p>
+
     <div
+      v-else-if="this.resultadosTotales.length > 0"
       v-for="(resultado, index) in resultadosTotales"
       :key="index"
       class="datosAnalisis"
@@ -18,6 +21,7 @@
         $ {{ resultado.resultadoTotal }}
       </p>
     </div>
+    <p v-else class="cargando">No hay inversiones</p>
   </div>
 </template>
 <script>
@@ -29,6 +33,7 @@ export default {
     return {
       dineroTotal: 0,
       resultadosTotales: [],
+      cargando: true,
     };
   },
   created() {
@@ -44,6 +49,8 @@ export default {
         console.log(cantidadesCriptomonedas);
       } catch (error) {
         console.error("Error al obtener y verificar cantidades:", error);
+      } finally {
+        this.cargando = false;
       }
     },
     async obtenerNombresCriptomonedas() {
@@ -116,7 +123,7 @@ export default {
   padding: 20px;
   border: 1px solid rgb(0, 0, 228);
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: transparent;
   font-family: "Poppins", sans-serif;
 }
 .conteiner-analisis-inversion h2 {
@@ -125,8 +132,7 @@ export default {
   margin-bottom: 20px;
   color: rgb(0, 0, 228);
 }
-/* ======================================== 
-*/
+/* ========================================*/
 .titulosAnalisisInversion {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -144,7 +150,7 @@ export default {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
-  background-color: #fff;
+  background-color: transparent;
 }
 .resultadoPositivo {
   font-weight: bold;
@@ -157,38 +163,8 @@ export default {
 .nombreCrypto {
   font-weight: bold;
 }
-/* .datosDeEstado p {
+.cargando {
+  text-align: center;
   font-weight: 600;
 }
-
-.container-total {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f0f0f0;
-  border: 1px solid rgb(0, 0, 228);
-  border-radius: 5px;
-}
-
-.titulo-total {
-  grid-column: 2 / 3;
-  text-align: center;
-  font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: rgb(0, 0, 228);
-}
-
-.precio-total {
-  font-weight: bold;
-  text-align: center;
-  font-size: 16px;
-}
-
-.verificando {
-  font-size: 18px;
-  color: rgb(0, 0, 228);
-  text-align: center;
-} */
 </style>

@@ -235,6 +235,10 @@ export default {
 h3 {
   font-size: 25px;
   margin: 8px;
+  color: #333;
+}
+p {
+  color: #333;
 }
 .input-select-accion {
   width: 70%;

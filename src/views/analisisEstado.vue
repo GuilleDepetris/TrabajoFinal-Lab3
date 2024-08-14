@@ -154,7 +154,7 @@ export default {
   padding: 20px;
   border: 1px solid rgb(0, 0, 228);
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: transparent;
   font-family: "Poppins", sans-serif;
 }
 
@@ -182,7 +182,7 @@ export default {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
-  background-color: #fff;
+  background-color: transparent;
 }
 .datosDeEstado p {
   font-weight: 600;
@@ -193,7 +193,7 @@ export default {
   grid-template-columns: repeat(3, 1fr);
   margin-top: 20px;
   padding: 10px;
-  background-color: #f0f0f0;
+  background-color: transparent;
   border: 1px solid rgb(0, 0, 228);
   border-radius: 5px;
 }

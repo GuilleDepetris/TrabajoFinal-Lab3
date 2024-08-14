@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: `https://laboratorio3-5fc7.restdb.io/rest/`,
-  headers: { "x-apikey": "64bdbc3386d8c5613ded91e7" },
+  baseURL: `https://laboratorio-afe2.restdb.io/rest/`,
+  headers: { "x-apikey": "650b53356888544ec60c00bf" },
 });
 const apiCryptoYa = axios.create({
   baseURL: `https://criptoya.com/api`,
