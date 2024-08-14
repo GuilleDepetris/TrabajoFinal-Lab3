@@ -1,6 +1,4 @@
 <template>
-  <!-- Esto es solo para que me deje de tirar la advertencia de que no lo estoy usando -->
-  <FontAwesomeIcon class="invisible"></FontAwesomeIcon>
   <div :class="{ 'dark-mode': darkMode }" class="dark">
     <HeaderGeneral v-if="mostrar" />
     <DarkMode />
@@ -8,14 +6,12 @@
   </div>
 </template>
 <script>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import DarkMode from "./components/DarkMode.vue";
 import "@fortawesome/fontawesome-free/css/all.css";
 import HeaderGeneral from "@/components/header.vue";
 
 export default {
   components: {
-    FontAwesomeIcon,
     HeaderGeneral,
     DarkMode,
   },
