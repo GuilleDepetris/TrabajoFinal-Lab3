@@ -14,12 +14,12 @@
     <h2>Crypto Market</h2>
     <div v-if="bandera">
       <nav class="contenedor-links2">
-        <router-link to="/">Precios</router-link>
+        <router-link to="/precioList">Precios</router-link>
         <router-link to="/transacciones">Transacciones</router-link>
         <router-link to="/movimientos">Movimientos</router-link>
         <router-link to="/analisisEstado">Billetera</router-link>
         <router-link to="/analisisDeInversion">Inversiones</router-link>
-        <router-link to="/sigin">Cerrar Sesión</router-link>
+        <router-link to="/">Cerrar Sesión</router-link>
       </nav>
     </div>
     <i class="fa-solid fa-bars" @click="barraLinks" id="icono-barra"></i>

@@ -6,8 +6,8 @@
     <p class="cargando" v-if="cargando1">
       No hay transacciones como para mostrar los graficos
     </p>
+    <i class="fa-solid fa-chevron-right" @click="cambiarGrafico()"></i>
   </div>
-  <i class="fa-solid fa-chevron-right" @click="cambiarGrafico()"></i>
 </template>
 <script>
 import Chart from "chart.js/auto";
@@ -143,7 +143,7 @@ export default {
 }
 i {
   position: absolute;
-  top: 50%;
+  top: 55%;
   right: 30px;
   font-size: 40px;
   color: rgba(140, 140, 140, 0.9);
@@ -153,14 +153,15 @@ i:hover {
 }
 @media only screen and (max-width: 900px) {
   .contenedor-graficos {
+    position: relative;
     min-width: 400px;
     min-height: 400px;
     margin: auto;
   }
   i {
     position: absolute;
-    top: 162%;
-    right: 30px;
+    top: 50%;
+    right: 10px;
     font-size: 40px;
     color: rgba(140, 140, 140, 0.9);
   }
