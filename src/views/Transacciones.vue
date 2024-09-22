@@ -50,6 +50,7 @@
     </div>
     <div>
       <p v-if="bandera3" class="msj-Compra">{{ msj2 }}</p>
+      <p v-if="bandera4" class="msj-Error">{{ msj }}</p>
     </div>
   </div>
 </template>
@@ -75,6 +76,7 @@ export default {
       bandera1: false,
       bandera2: false,
       bandera3: false,
+      bandera4: false,
     };
   },
   created() {
@@ -129,8 +131,10 @@ export default {
         venta = this.venta * cantidad;
         this.ventaF = "$" + venta.toFixed(2);
         this.estadoBoton = true;
+      } else if (cantidad < 0) {
+        this.msj = "Cantidad incorrecta";
       } else {
-        this.msj = "Cantidad o cryptomoneda incorrecta";
+        this.msj = "Seleccione una criptomoneda";
       }
     },
     async comprar() {
@@ -162,6 +166,8 @@ export default {
         } catch (error) {
           console.error("Error en la solicitud POST:", error);
         }
+      } else if (this.cantidad == 0 || this.cantidad < 0) {
+        this.msj = "La cantidad a comprar debe ser mayor a cero";
       }
     },
     async verificarCrypto(accion) {
@@ -205,12 +211,16 @@ export default {
           cantTotal -= cantTransaccion.crypto_amount;
         }
       }
-      if (cantTotal >= this.cantidad) {
-        this.bandera1 = true;
-        this.bandera2 = false;
+      if (this.cantidad > 0) {
+        if (cantTotal >= this.cantidad) {
+          this.bandera1 = true;
+          this.bandera2 = false;
+        } else {
+          this.bandera1 = false;
+          this.bandera2 = true;
+        }
       } else {
-        this.bandera1 = false;
-        this.bandera2 = true;
+        this.msj = "La cantidad a vender debe ser mayor a cero";
       }
     },
     async vender() {
