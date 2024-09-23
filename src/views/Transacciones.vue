@@ -50,7 +50,6 @@
     </div>
     <div>
       <p v-if="bandera3" class="msj-Compra">{{ msj2 }}</p>
-      <p v-if="bandera4" class="msj-Error">{{ msj }}</p>
     </div>
   </div>
 </template>
@@ -76,7 +75,6 @@ export default {
       bandera1: false,
       bandera2: false,
       bandera3: false,
-      bandera4: false,
     };
   },
   created() {
