@@ -378,6 +378,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .btnsTransaccion button:hover {
   background-color: #0056b3;
 }
+.btnsTransaccion button:disabled {
+  background-color: #00448d;
+}
 
 .pregunta-confirmacion {
   font-family: "Poppins", sans-serif;
